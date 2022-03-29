@@ -23,6 +23,7 @@ enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
 
 // Typedefs
 typedef float Weight;
+typedef int NumCats;
 
 // Global Variables
 //extern char nameData[MAX_CATS][MAX_NAME_LENGTH];
@@ -30,7 +31,7 @@ typedef float Weight;
 //extern enum breed breedData[MAX_CATS];
 //extern bool boolData[MAX_CATS];
 //extern float weightData[MAX_CATS];
-extern int CURRENT_CATS;
+extern NumCats CURRENT_CATS;
 
 // Conversion from 5 Arrays to 1 Array of a Structure
 

@@ -16,7 +16,7 @@
 #include "updateCats.h"
 #include "config.h"
 
-int updateCatName(int index, char newName[]){
+int updateCatName(NumCats index, char newName[]){
     // Check that index is not less than 0 or more than max number of cats
     if (index < 0 || index > MAX_CATS){
         fprintf( stderr, "%s: Bad Cat [%d]\n", PROGRAM_NAME, index);
@@ -44,7 +44,7 @@ int updateCatName(int index, char newName[]){
     return 1;
 }
 
-int fixCat(int index){
+int fixCat(NumCats index){
     // Check that index is not less than 0 or greater than max number of cats
     if (index < 0 || index > MAX_CATS){
         fprintf( stderr, "%s: Bad cat [%d]\n", PROGRAM_NAME, index);
@@ -55,7 +55,7 @@ int fixCat(int index){
     return 1;
 }
 
-int updateCatWeight(int index, Weight newWeight){
+int updateCatWeight(NumCats index, Weight newWeight){
     if (index < 0 || index > MAX_CATS){
         fprintf( stderr, "%s: Bad cat [%d]\n", PROGRAM_NAME, index);
         return 0;
@@ -68,22 +68,22 @@ int updateCatWeight(int index, Weight newWeight){
     return 1;
 }
 
-int updateCatCollar1(int index, Color newCollar1 ){
+int updateCatCollar1(NumCats index, Color newCollar1 ){
     array_catData[index].collar1 = newCollar1;
     return 1;
 }
 
-int updateCatCollar2(int index, Color newCollar2 ){
+int updateCatCollar2(NumCats index, Color newCollar2 ){
     array_catData[index].collar2 = newCollar2;
     return 1;
 }
 
-int updateLicense( int index, int newLicense ){
+int updateLicense( NumCats index, int newLicense ){
     array_catData[index].license = newLicense;
     return 1;
 }
 
-int updateCatName(const int index, const char *newName) {
+int updateCatName(const NumCats index, const char *newName) {
     return 0;
 }
 

@@ -16,7 +16,7 @@
 #include "reportCats.h"
 #include "config.h"
 
-int printCat(int index){
+int printCat(NumCats index){
     // Check if index is less than 0 or more than number of cats in database
     if (index > MAX_CATS || index < 0){
         fprintf( stderr, "%s: Bad cat [%d]\n", PROGRAM_NAME, index);

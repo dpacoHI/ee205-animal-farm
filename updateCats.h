@@ -10,15 +10,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-extern int updateCatName(const int index, const char newName[]);
+extern int updateCatName(const NumCats index, const char newName[]);
 
-extern int fixCat(const int index);
+extern int fixCat(const NumCats index);
 
-extern int updateCatWeight(const int index, const Weight newWeight);
+extern int updateCatWeight(const NumCats index, const Weight newWeight);
 
-extern int updateCatCollar1(const int index, Color newCollar1);
+extern int updateCatCollar1(const NumCats index, Color newCollar1);
 
-extern int updateCatCollar2(const int index, Color newCollar2);
+extern int updateCatCollar2(const NumCats index, Color newCollar2);
 
-extern int updateLicense(const int index, const int newLicense);
+extern int updateLicense(const NumCats index, const int newLicense);
 

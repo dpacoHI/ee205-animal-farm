@@ -23,7 +23,7 @@
 //Weight weightData[MAX_CATS];
 
 // Current Number of Cats initialized to 0
-int CURRENT_CATS = 0;
+NumCats CURRENT_CATS = 0;
 
 // Declare an array of the structure
 struct catData array_catData[MAX_CATS];

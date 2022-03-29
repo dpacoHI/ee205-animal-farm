@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-extern int printCat(const int index);
+extern int printCat(const NumCats index);
 
 extern int printAllCats(void);
 
