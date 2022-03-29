@@ -21,7 +21,8 @@ enum gender {UNKNOWN_GENDER, MALE, FEMALE};
 enum breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
 
-// Print Enums as Strings...
+// Typedefs
+typedef float Weight;
 
 // Global Variables
 //extern char nameData[MAX_CATS][MAX_NAME_LENGTH];
@@ -39,7 +40,7 @@ extern struct catData
     enum gender genderData;
     enum breed breedData;
     bool boolData;
-    float weightData;
+    Weight weightData;
     enum Color collar1;
     enum Color collar2;
     unsigned long long license;

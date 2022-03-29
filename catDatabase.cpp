@@ -20,7 +20,7 @@
 //enum gender genderData[MAX_CATS];
 //enum breed breedData[MAX_CATS];
 //bool boolData[MAX_CATS];
-//float weightData[MAX_CATS];
+//Weight weightData[MAX_CATS];
 
 // Current Number of Cats initialized to 0
 int CURRENT_CATS = 0;

@@ -16,7 +16,7 @@
 #include "catDatabase.h"
 #include "config.h"
 
-const int addCat(const char *name, const enum gender gender, const enum breed breed, const bool isFixed, const float weight,const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
+const int addCat(const char *name, const enum gender gender, const enum breed breed, const bool isFixed, const Weight weight,const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
 
     // Check if database is full
     if (CURRENT_CATS > MAX_CATS){

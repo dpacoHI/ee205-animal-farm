@@ -55,7 +55,7 @@ int fixCat(int index){
     return 1;
 }
 
-int updateCatWeight(int index, float newWeight){
+int updateCatWeight(int index, Weight newWeight){
     if (index < 0 || index > MAX_CATS){
         fprintf( stderr, "%s: Bad cat [%d]\n", PROGRAM_NAME, index);
         return 0;
