@@ -23,7 +23,7 @@ int printCat(NumCats index){
         return 0;
     }
     else {
-        printf("cat index = [%u] | name = [%s] | gender = [%s] | breed = [%s] | isFixed = [%d] | weight = [%f] | color1 = [%s] | color2 = [%s] | license = [%llu]\n", index, array_catData[index].nameData, gender_str(array_catData[index].genderData), breed_str(array_catData[index].breedData), array_catData[index].boolData, array_catData[index].weightData, color_str(array_catData[index].collar1), color_str(array_catData[index].collar2), array_catData[index].license);
+        printf("cat index = [%u] | name = [%s] | Gender = [%s] | Breed = [%s] | isFixed = [%d] | weight = [%f] | color1 = [%s] | color2 = [%s] | license = [%llu]\n", index, array_catData[index].nameData, gender_str(array_catData[index].genderData), breed_str(array_catData[index].breedData), array_catData[index].boolData, array_catData[index].weightData, color_str(array_catData[index].collar1), color_str(array_catData[index].collar2), array_catData[index].license);
     }
     return 1;
 }
@@ -31,7 +31,7 @@ int printCat(NumCats index){
 int printAllCats(void){
     // Print all cats by stepping up from i
     for (int i = 0; i < CURRENT_CATS; ++i){
-        printf("cat index = [%u] | name = [%s] | gender = [%s] | breed = [%s] | isFixed = [%d] | weight = [%f] | color1 = [%s] | color2 = [%s] | license = [%llu]\n", i, array_catData[i].nameData, gender_str(array_catData[i].genderData), breed_str(array_catData[i].breedData), array_catData[i].boolData, array_catData[i].weightData, color_str(array_catData[i].collar1), color_str(array_catData[i].collar2), array_catData[i].license);
+        printf("cat index = [%u] | name = [%s] | Gender = [%s] | Breed = [%s] | isFixed = [%d] | weight = [%f] | color1 = [%s] | color2 = [%s] | license = [%llu]\n", i, array_catData[i].nameData, gender_str(array_catData[i].genderData), breed_str(array_catData[i].breedData), array_catData[i].boolData, array_catData[i].weightData, color_str(array_catData[i].collar1), color_str(array_catData[i].collar2), array_catData[i].license);
     }
     return 1;
 }

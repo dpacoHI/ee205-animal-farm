@@ -16,7 +16,7 @@
 #include "catDatabase.h"
 #include "config.h"
 
-const int addCat(const char *name, const enum gender gender, const enum breed breed, const bool isFixed, const Weight weight,const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
+const int addCat(const char *name, const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
 
     // Check if database is full
     if (CURRENT_CATS > MAX_CATS){
@@ -53,8 +53,8 @@ const int addCat(const char *name, const enum gender gender, const enum breed br
     // If validations all pass, send data into database arrays and add a number of cats.
     // CURRENT_CATS++;
     // strncpy(nameData[CURRENT_CATS], name, MAX_NAME_LENGTH);
-    // genderData[CURRENT_CATS]= gender;
-    // breedData[CURRENT_CATS]= breed;
+    // genderData[CURRENT_CATS]= Gender;
+    // breedData[CURRENT_CATS]= Breed;
     // boolData[CURRENT_CATS]= isFixed;
     // weightData[CURRENT_CATS]= weight;
 

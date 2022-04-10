@@ -13,12 +13,14 @@
 #include <string.h>
 #pragma once
 
+using namespace std;
+
 #define MAX_NAME_LENGTH 50
 #define MAX_CATS 1024
 
 // Declare Enums for Gender and Breed
-enum gender {UNKNOWN_GENDER, MALE, FEMALE};
-enum breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
+enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
+enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
 
 // Typedefs
@@ -27,8 +29,8 @@ typedef int NumCats;
 
 // Global Variables
 //extern char nameData[MAX_CATS][MAX_NAME_LENGTH];
-//extern enum gender genderData[MAX_CATS];
-//extern enum breed breedData[MAX_CATS];
+//extern enum Gender genderData[MAX_CATS];
+//extern enum Breed breedData[MAX_CATS];
 //extern bool boolData[MAX_CATS];
 //extern float weightData[MAX_CATS];
 extern NumCats CURRENT_CATS;
@@ -38,8 +40,8 @@ extern NumCats CURRENT_CATS;
 extern struct catData
 {
     char nameData[MAX_NAME_LENGTH];
-    enum gender genderData;
-    enum breed breedData;
+    enum Gender genderData;
+    enum Breed breedData;
     bool boolData;
     Weight weightData;
     enum Color collar1;
@@ -47,7 +49,29 @@ extern struct catData
     unsigned long long license;
 } array_catData[MAX_CATS];
 
-extern const char* gender_str(const enum gender genderData);
-extern const char* breed_str(const enum breed breedData);
+// Implementation of Cat Class
+class Cat{
+
+protected:
+    // Members
+    char name[MAX_NAME_LENGTH];
+    enum Gender gender;
+    enum Breed  breed;
+    bool        isCatFixed;
+    Weight      weight;
+    Cat*        next;
+public:
+    // Getters
+    // Constructors and Destructors
+    Cat(); // Constructor with no Parameters
+    Cat( const char* newName,
+         const Gender newGender,
+         const Breed newBreed,
+         const Weight newWeight); // Constructor with fields for valid cat.
+    ~Cat(); // Destructor
+
+};
+extern const char* gender_str(const enum Gender genderData);
+extern const char* breed_str(const enum Breed breedData);
 extern const char* color_str(const enum Color colorData);
 

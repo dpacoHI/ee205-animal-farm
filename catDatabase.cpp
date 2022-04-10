@@ -17,8 +17,8 @@
 #include "config.h"
 
 //char nameData[MAX_CATS][MAX_NAME_LENGTH];
-//enum gender genderData[MAX_CATS];
-//enum breed breedData[MAX_CATS];
+//enum Gender genderData[MAX_CATS];
+//enum Breed breedData[MAX_CATS];
 //bool boolData[MAX_CATS];
 //Weight weightData[MAX_CATS];
 
@@ -29,7 +29,7 @@ NumCats CURRENT_CATS = 0;
 struct catData array_catData[MAX_CATS];
 
 // Printing out Enums as Strings...
-const char* gender_str(enum gender genderData)
+const char* gender_str(enum Gender genderData)
 {
     switch (genderData)
     {
@@ -40,7 +40,7 @@ const char* gender_str(enum gender genderData)
     return 0;
 }
 
-const char* breed_str(enum breed breedData)
+const char* breed_str(enum Breed breedData)
 {
     switch (breedData)
     {
