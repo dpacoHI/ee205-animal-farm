@@ -29,7 +29,7 @@ Cat* catDatabaseHPointer = nullptr;
 NumCats CURRENT_CATS = 0;
 
 // Declare an array of the structure
-struct catData array_catData[MAX_CATS];
+// struct catData array_catData[MAX_CATS];
 
 // Printing out Enums as Strings...
 const char* gender_str(enum Gender gender)

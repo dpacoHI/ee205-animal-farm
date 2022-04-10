@@ -16,7 +16,7 @@
 #include "updateCats.h"
 #include "config.h"
 
-int updateCatName(NumCats index, char newName[]){
+/*int updateCatName(NumCats index, char newName[]){
     // Check that index is not less than 0 or more than max number of cats
     if (index < 0 || index > MAX_CATS){
         fprintf( stderr, "%s: Bad Cat [%d]\n", PROGRAM_NAME, index);
@@ -85,5 +85,5 @@ int updateLicense( NumCats index, int newLicense ){
 
 int updateCatName(const NumCats index, const char *newName) {
     return 0;
-}
+}*/
 
