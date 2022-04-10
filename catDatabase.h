@@ -62,8 +62,10 @@ protected:
     enum Breed  breed;
     bool        isCatFixed;
     Weight      weight;
-    Cat*        next;
 public:
+    // Only Public Member
+    Cat* next;
+
     // Getters and Setters (with Validations)
     char* getName() {
         return name;
@@ -132,6 +134,11 @@ public:
     static bool checkBreed(const Breed newBreed); // Checks Cat's Breed
     static bool checkWeight(const Weight newWeight); // Checks Cat's Weight
 };
+
+// Linked List Implementation
+extern Cat* catDatabaseHPointer;
+extern bool validateDatabase();
+
 extern const char* gender_str(const enum Gender genderData);
 extern const char* breed_str(const enum Breed breedData);
 extern const char* color_str(const enum Color colorData);

@@ -11,12 +11,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <cassert>
 
 #include "catDatabase.h"
 #include "reportCats.h"
 #include "config.h"
 
-int printCat(NumCats index){
+/* Pre OOP Code
+ * int printCat(NumCats index){
     // Check if index is less than 0 or more than number of cats in database
     if (index > MAX_CATS || index < 0){
         fprintf( stderr, "%s: Bad cat [%d]\n", PROGRAM_NAME, index);
@@ -47,4 +49,24 @@ int findCat(const char *name){
         // Returns index number if found
     }
     return 0; // Returns error if not found
+}*/
+
+Cat* findCatByName(const char* name){
+    assert(Cat().checkName(name)); // Check Name
+    for(Cat* Current_Cat = catDatabaseHPointer; Current_Cat != nullptr; Current_Cat = Current_Cat->next){
+        if(strcmp(name,Current_Cat->getName())==0){ // Checks to see if string matches...
+            return Current_Cat;
+        }
+    }
+    return nullptr; // Sends blank when no name is matched
+}
+
+bool printAllCats(){
+    int i = 0;
+    assert(validateDatabase());
+    for(Cat* Current_Cat = catDatabaseHPointer; Current_Cat != nullptr; Current_Cat = Current_Cat->next){
+        Current_Cat->print();
+        i++;
+    }
+    return true;
 }

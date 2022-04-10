@@ -50,7 +50,8 @@ int main ( ) {
     deleteAllCats();
     printAllCats();*/
 
-#ifdef DEBUG
+/* OLD DEBUG STATEMENTS (PRE-OOP)
+ * #ifdef DEBUG
     // Testing Empty Name
    assert( addCat( "", MALE, PERSIAN, false, 19.0, BLACK, BLACK, 101 ) == false );
    // Testing Max Name
@@ -61,6 +62,104 @@ int main ( ) {
    assert( addCat( "Trin", MALE, MANX, false, 34.0, BLUE, BLUE, 213 ) == false );
    // Testing Illegal Weight
    assert( addCat( "David", MALE, SPHYNX, true, -4, BLUE, RED, 211 ) == false );
+#endif*/
+#ifdef DEBUG
+    {
+      // Verify that a cat's default values are set
+      Cat testCat = Cat();
+      assert(testCat.getName() != nullptr );
+      assert(strcmp(testCat.getName(), "") == 0);
+      assert(testCat.getGender() == UNKNOWN_GENDER);
+      assert(testCat.getBreed() == UNKNOWN_BREED);
+      assert(testCat.isFixed() == false);
+      assert(testCat.getWeight() == UNKNOWN_WEIGHT);
+      assert(!testCat.isFixed());
+      assert(!testCat.validate());  // The default cat is invalid
+
+      // Test for NULL name
+      try {
+         testCat.setName(nullptr);
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      // Test for empty name
+      try {
+         testCat.setName("");
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      // Test valid names
+      testCat.setName("A");       // A 1 character name is valid
+      testCat.setName(MAX_NAME1); // A MAX_NAME1 name is valid
+
+      // Test for name too large
+      try {
+         testCat.setName(ILLEGAL_NAME);
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      testCat.setGender(FEMALE);
+
+      try {
+         testCat.setGender(MALE);
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      testCat.setBreed(MAINE_COON);
+
+      try {
+         testCat.setBreed(MANX);
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      testCat.fixCat();
+      assert(testCat.isFixed());
+
+      // Test for Weight <= 0
+      try {
+         testCat.setWeight(0);
+         assert(false); // We should never get here
+      } catch (exception const &e) {}
+
+      testCat.setWeight(1.0 / 1024);
+      assert(testCat.getWeight() == 1.0 / 1024);
+
+      assert(testCat.validate());  // The cat should now be valid
+      testCat.print() ;
+
+      assert(!isCatInDatabase(&testCat)) ;
+   }
 #endif
+
+    addCat( new Cat( "Loki", MALE, PERSIAN, 1.0 )) ;
+    addCat( new Cat( "Milo", MALE, MANX , 1.1 )) ;
+    addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
+    addCat( new Cat( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
+    addCat( new Cat( "Trin", FEMALE, MANX, 1.4 )) ;
+    addCat( new Cat( "Chili", MALE, SHORTHAIR, 1.5 )) ;
+
+#ifdef DEBUG
+    {
+      // Test finding a cat...
+      Cat *bella = findCatByName("Bella");
+      assert(bella != nullptr);
+      // Test not finding a cat
+      assert(findCatByName("Bella's not here") == nullptr);
+
+      // Test deleting a cat...
+      assert(deleteCat(bella) == true);
+      try {
+         deleteCat(bella); // Verify that Bella's not there
+      } catch (exception const &e) {}
+
+      bella = nullptr;
+   }
+#endif
+
+    printAllCats() ;
+
+    deleteAllCats() ;
+
+    printAllCats() ;
     cout << "Done with Animal Farm 2\n";
 }

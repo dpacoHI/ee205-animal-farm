@@ -15,7 +15,8 @@
 
 #pragma once
 
-extern const int addCat(const char name[], const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long license );
+//extern const int addCat(const char name[], const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long license );
 
 // extern int addCat( name[], Gender, Breed, isFixed, weight);
+extern bool addCat(Cat* newCat);
 

@@ -10,10 +10,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-extern int printCat(const NumCats index);
+//extern int printCat(const NumCats index);
 
-extern int printAllCats(void);
+//extern int printAllCats(void);
 
-extern int findCat(const char name[]);
+//extern int findCat(const char name[]);
 
+extern bool printAllCats(void);
+
+extern Cat* findCatByName(const char* name);
 

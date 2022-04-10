@@ -10,4 +10,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-int deleteAllCats(void);
+extern bool deleteAllCats(void);
+
+extern bool deleteCat(Cat* deleteChosenCat);

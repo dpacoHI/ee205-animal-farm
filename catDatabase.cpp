@@ -24,6 +24,7 @@ using namespace std;
 //bool boolData[MAX_CATS];
 //Weight weightData[MAX_CATS];
 
+Cat* catDatabaseHPointer = nullptr;
 // Current Number of Cats initialized to 0
 NumCats CURRENT_CATS = 0;
 
@@ -80,6 +81,15 @@ void Cat::setZero(){
 
 Cat::Cat() {
     setZero();
+}
+
+Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) {
+    setName(newName);
+    setGender(newGender);
+    setBreed(newBreed);
+    setWeight(newWeight);
+
+    assert(validate());
 }
 
 Cat::~Cat(){
@@ -152,3 +162,17 @@ bool Cat::print(){
     return true ;
 }
 
+bool validateDatabase(){
+    int i = 0;
+    for(Cat* Current_Cat = catDatabaseHPointer; Current_Cat != nullptr; Current_Cat = Current_Cat->next){
+        if(!Current_Cat->validate()){ // Runs validations on the current cat
+            return false;
+        }
+        i++;
+    }
+    if(i != CURRENT_CATS){
+        cout << "ERROR: There is an invalid cat in the database.\n";
+        return false;
+    }
+    return true; // Database is validated
+}

@@ -12,11 +12,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <cassert>
 #include "addCats.h"
 #include "catDatabase.h"
 #include "config.h"
 
-const int addCat(const char *name, const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
+/*const int addCat(const char *name, const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
 
     // Check if database is full
     if (CURRENT_CATS > MAX_CATS){
@@ -70,5 +71,16 @@ const int addCat(const char *name, const enum Gender gender, const enum Breed br
     CURRENT_CATS++;
     return 1;
 
+} PRE-OOP Function
+ */
+
+bool addCat(Cat* newCat){
+    assert(newCat != nullptr);
+    newCat->validate(); // Check that the Cat fo
+    newCat->next = catDatabaseHPointer;
+    catDatabaseHPointer = newCat;
+    CURRENT_CATS++;
+    assert(validateDatabase());
+    return true;
 }
 
