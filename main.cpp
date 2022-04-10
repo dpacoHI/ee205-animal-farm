@@ -21,11 +21,13 @@
 #include "reportCats.h"
 #include "updateCats.h"
 #include "deleteCats.h"
+#include <iostream>
+using namespace std;
 // #include "config.h"
 
 int main ( ) {
-
-    addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101) ;
+    cout << "Starting Animal Farm 2\n";
+  /*  addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101) ;
     addCat( "Milo", MALE, MANX, true, 7.0, BLACK, RED, 102) ;
     addCat( "Bella", FEMALE, MAINE_COON, true, 18.2, BLACK, BLUE, 103) ;
     addCat( "Kali", FEMALE, SHORTHAIR, false, 9.2, BLACK, GREEN, 104) ;
@@ -46,7 +48,8 @@ int main ( ) {
     printAllCats();
 
     deleteAllCats();
-    printAllCats();
+    printAllCats();*/
+
 #ifdef DEBUG
     // Testing Empty Name
    assert( addCat( "", MALE, PERSIAN, false, 19.0, BLACK, BLACK, 101 ) == false );
@@ -59,5 +62,5 @@ int main ( ) {
    // Testing Illegal Weight
    assert( addCat( "David", MALE, SPHYNX, true, -4, BLUE, RED, 211 ) == false );
 #endif
-
+    cout << "Done with Animal Farm 2\n";
 }

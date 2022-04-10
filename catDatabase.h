@@ -12,12 +12,14 @@
 #include <stdbool.h>
 #include <string.h>
 #include <iostream>
+#include <iomanip>
 #pragma once
 
 using namespace std;
 
 #define MAX_NAME_LENGTH 50
 #define MAX_CATS 1024
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
 // Declare Enums for Gender and Breed
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
@@ -139,6 +141,14 @@ public:
          const Weight newWeight); // Constructor with fields for valid cat.
     ~Cat(); // Destructor
 
+
+    // Methods
+    bool print();
+    bool validate();
+    static bool checkName(const char* newName ) ;
+    static bool checkGender(const Gender newGender);
+    static bool checkBreed(const Breed newBreed);
+    static bool checkWeight(const Weight newWeight);
 };
 extern const char* gender_str(const enum Gender genderData);
 extern const char* breed_str(const enum Breed breedData);

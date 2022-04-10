@@ -12,7 +12,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-
+#include <iomanip>
+#include <cassert>
 #include "catDatabase.h"
 #include "config.h"
 using namespace std;
@@ -68,3 +69,72 @@ const char* color_str(enum Color colorData)
     }
     return 0;
 }
+
+
+bool Cat::checkName(const char newName[]) {
+    if (newName == nullptr) { // Detects that name is not nullptr
+        cout << "ERROR: Null Pointer Detected!\n";
+        return false;
+    }
+    if (strlen(newName) <= 0) { // Detects that name is not empty
+        cout << "ERROR: Cats need a name.\n";
+        return false;
+    }
+    if (strlen(newName) > MAX_NAME_LENGTH) {
+        cout << "ERROR: Inputted name is too long\n";
+        return false;
+    }
+    return true;
+}
+
+bool Cat::checkGender(Gender newGender){
+    if( newGender == UNKNOWN_GENDER ){
+        cout << "ERROR: Gender must be known.\n";
+        return false;
+    }
+    return true;
+}
+
+bool Cat::checkBreed(Breed newBreed){
+    if( newBreed == UNKNOWN_BREED){
+        cout << "ERROR: Breed must be known.\n";
+        return false;
+    }
+    return true;
+}
+
+bool Cat::checkWeight(Weight newWeight){
+    if(newWeight <= 0){
+        cout << "ERROR: Cat's weight must be greater than 0.\n";
+        return false;
+    }
+    return true;
+}
+
+bool Cat::validate(){
+    try {
+        checkName(name);
+        checkGender(gender);
+        checkBreed(breed);
+        checkWeight(weight);
+    }
+    catch (exception) {
+        return false;
+    }
+    return true;
+}
+
+bool Cat::print(){
+    assert( validate() ) ;
+    cout << setw(80) << setfill( '=' ) << "" << endl ;
+    cout << setfill( ' ' ) ;
+    cout << left ;
+    cout << boolalpha ;
+    FORMAT_LINE( "Cat", "name" ) << getName() << endl ;
+    FORMAT_LINE( "Cat", "gender" ) << getGender() << endl ;
+    FORMAT_LINE( "Cat", "breed" ) << getBreed() << endl ;
+    FORMAT_LINE( "Cat", "isFixed" ) << getFixed() << endl ;
+    FORMAT_LINE( "Cat", "weight" ) << getWeight() << endl ;
+    return true ;
+}
+
