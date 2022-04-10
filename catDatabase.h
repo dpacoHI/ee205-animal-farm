@@ -40,7 +40,7 @@ extern NumCats CURRENT_CATS;
 
 // Conversion from 5 Arrays to 1 Array of a Structure
 
-extern struct catData
+/*extern struct catData
 {
     char nameData[MAX_NAME_LENGTH];
     enum Gender genderData;
@@ -50,7 +50,7 @@ extern struct catData
     enum Color collar1;
     enum Color collar2;
     unsigned long long license;
-} array_catData[MAX_CATS];
+} array_catData[MAX_CATS];*/
 
 // Implementation of Cat Class
 class Cat{
