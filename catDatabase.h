@@ -69,18 +69,8 @@ public:
         return name;
     }
     void setName (const char newName[]){
-        if (newName == nullptr){ // Detects that name is not nullptr
-            cout << "ERROR: Null Pointer Detected!\n";
-            return;
-        }
-        if (strlen(newName) <= 0){ // Detects that name is not empty
-            cout << "ERROR: Cats need a name.\n";
-            return;
-        }
-        if (strlen(newName) > MAX_NAME_LENGTH){
-            cout << "ERROR: Inputted name is too long\n";
-            return;
-        }
+        checkName(newName);
+        memset(name, 0, MAX_NAME_LENGTH);
         strcpy(name, newName);
     }
 
@@ -92,10 +82,7 @@ public:
             cout << "Gender is set and cannot be changed.\n";
             return;
         }
-        if( newGender == UNKNOWN_GENDER ){
-            cout << "ERROR: Gender must be known.\n";
-            return;
-        }
+        checkGender(newGender);
         gender = newGender;
     }
 
@@ -107,10 +94,7 @@ public:
             cout << "Breed is set and cannot be changed.\n";
             return;
         }
-        if( newBreed == UNKNOWN_BREED){
-            cout << "ERROR: Breed must be known.\n";
-            return;
-        }
+        checkBreed(newBreed);
         breed = newBreed;
     }
 
@@ -125,10 +109,7 @@ public:
         return weight;
     }
     void setWeight(Weight newWeight){
-        if(newWeight <= 0){
-            cout << "ERROR: Cat's weight must be greater than 0.\n";
-            return;
-        }
+        checkWeight(newWeight);
         weight = newWeight;
     }
 
@@ -143,12 +124,13 @@ public:
 
 
     // Methods
-    bool print();
-    bool validate();
-    static bool checkName(const char* newName ) ;
-    static bool checkGender(const Gender newGender);
-    static bool checkBreed(const Breed newBreed);
-    static bool checkWeight(const Weight newWeight);
+    void setZero(); // Initializes or Deletes Data
+    bool print(); // Prints Cat
+    bool validate(); // Checks if Cat is Valid
+    static bool checkName(const char* newName ) ; // Checks Cat's Name
+    static bool checkGender(const Gender newGender); // Checks Cat's Gender
+    static bool checkBreed(const Breed newBreed); // Checks Cat's Breed
+    static bool checkWeight(const Weight newWeight); // Checks Cat's Weight
 };
 extern const char* gender_str(const enum Gender genderData);
 extern const char* breed_str(const enum Breed breedData);

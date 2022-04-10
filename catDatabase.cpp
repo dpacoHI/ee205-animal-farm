@@ -70,7 +70,21 @@ const char* color_str(enum Color colorData)
     return 0;
 }
 
+void Cat::setZero(){
+    memset(name,0,MAX_NAME_LENGTH);
+    gender = UNKNOWN_GENDER;
+    breed = UNKNOWN_BREED;
+    isCatFixed = false;
+    weight = -1;
+}
 
+Cat::Cat() {
+    setZero();
+}
+
+Cat::~Cat(){
+    setZero();
+}
 bool Cat::checkName(const char newName[]) {
     if (newName == nullptr) { // Detects that name is not nullptr
         cout << "ERROR: Null Pointer Detected!\n";
