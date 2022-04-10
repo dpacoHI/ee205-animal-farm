@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <iostream>
 #pragma once
 
 using namespace std;
@@ -61,7 +62,75 @@ protected:
     Weight      weight;
     Cat*        next;
 public:
-    // Getters
+    // Getters and Setters (with Validations)
+    char* getName() {
+        return name;
+    }
+    void setName (const char newName[]){
+        if (newName == nullptr){ // Detects that name is not nullptr
+            cout << "ERROR: Null Pointer Detected!\n";
+            return;
+        }
+        if (strlen(newName) <= 0){ // Detects that name is not empty
+            cout << "ERROR: Cats need a name.\n";
+            return;
+        }
+        if (strlen(newName) > MAX_NAME_LENGTH){
+            cout << "ERROR: Inputted name is too long\n";
+            return;
+        }
+        strcpy(name, newName);
+    }
+
+    Gender getGender(){
+        return gender;
+    }
+    void setGender (Gender newGender){
+        if( gender != UNKNOWN_GENDER ){
+            cout << "Gender is set and cannot be changed.\n";
+            return;
+        }
+        if( newGender == UNKNOWN_GENDER ){
+            cout << "ERROR: Gender must be known.\n";
+            return;
+        }
+        gender = newGender;
+    }
+
+    Breed getBreed(){
+        return breed;
+    }
+    void setBreed (Breed newBreed){
+        if( breed != UNKNOWN_BREED ){
+            cout << "Breed is set and cannot be changed.\n";
+            return;
+        }
+        if( newBreed == UNKNOWN_BREED){
+            cout << "ERROR: Breed must be known.\n";
+            return;
+        }
+        breed = newBreed;
+    }
+
+    bool getFixed(){
+        return isCatFixed;
+    }
+    void fixCat(){
+        isCatFixed = true;
+    }
+
+    Weight getWeight(){
+        return weight;
+    }
+    void setWeight(Weight newWeight){
+        if(newWeight <= 0){
+            cout << "ERROR: Cat's weight must be greater than 0.\n";
+            return;
+        }
+        weight = newWeight;
+    }
+
+
     // Constructors and Destructors
     Cat(); // Constructor with no Parameters
     Cat( const char* newName,

@@ -15,6 +15,7 @@
 
 #include "catDatabase.h"
 #include "config.h"
+using namespace std;
 
 //char nameData[MAX_CATS][MAX_NAME_LENGTH];
 //enum Gender genderData[MAX_CATS];
@@ -67,5 +68,3 @@ const char* color_str(enum Color colorData)
     }
     return 0;
 }
-
-
