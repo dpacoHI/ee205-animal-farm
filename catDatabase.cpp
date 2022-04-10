@@ -32,9 +32,9 @@ NumCats CURRENT_CATS = 0;
 struct catData array_catData[MAX_CATS];
 
 // Printing out Enums as Strings...
-const char* gender_str(enum Gender genderData)
+const char* gender_str(enum Gender gender)
 {
-    switch (genderData)
+    switch (gender)
     {
         case UNKNOWN_GENDER: return "Unknown";
         case MALE: return "Male";
@@ -43,9 +43,9 @@ const char* gender_str(enum Gender genderData)
     return 0;
 }
 
-const char* breed_str(enum Breed breedData)
+const char* breed_str(enum Breed breed)
 {
-    switch (breedData)
+    switch (breed)
     {
         case UNKNOWN_BREED:  return "Unknown";
         case MAINE_COON:     return "Maine Coon";
@@ -155,8 +155,8 @@ bool Cat::print(){
     cout << left ;
     cout << boolalpha ;
     FORMAT_LINE( "Cat", "name" ) << getName() << endl ;
-    FORMAT_LINE( "Cat", "gender" ) << getGender() << endl ;
-    FORMAT_LINE( "Cat", "breed" ) << getBreed() << endl ;
+    FORMAT_LINE( "Cat", "gender" ) << gender_str(getGender()) << endl ;
+    FORMAT_LINE( "Cat", "breed" ) << breed_str(getBreed()) << endl ;
     FORMAT_LINE( "Cat", "isFixed" ) << getFixed() << endl ;
     FORMAT_LINE( "Cat", "weight" ) << getWeight() << endl ;
     return true ;

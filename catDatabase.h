@@ -118,10 +118,7 @@ public:
 
     // Constructors and Destructors
     Cat(); // Constructor with no Parameters
-    Cat( const char* newName,
-         const Gender newGender,
-         const Breed newBreed,
-         const Weight newWeight); // Constructor with fields for valid cat.
+    Cat( const char* newName, const Gender newGender, const Breed newBreed, const Weight newWeight); // Constructor with fields for valid cat.
     ~Cat(); // Destructor
 
 
@@ -139,7 +136,7 @@ public:
 extern Cat* catDatabaseHPointer;
 extern bool validateDatabase();
 
-extern const char* gender_str(const enum Gender genderData);
-extern const char* breed_str(const enum Breed breedData);
+extern const char* gender_str(const enum Gender gender);
+extern const char* breed_str(const enum Breed breed);
 extern const char* color_str(const enum Color colorData);
 
