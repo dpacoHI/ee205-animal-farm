@@ -14,7 +14,7 @@
 #include <string.h>
 #include <iomanip>
 #include <cassert>
-#include "catDatabase.h"
+#include "Cat.h"
 #include "config.h"
 using namespace std;
 
@@ -71,6 +71,7 @@ const char* color_str(enum Color colorData)
     return 0;
 }*/
 
+/*
 void Cat::setZero(){
     memset(name,0,MAX_NAME_LENGTH);
     gender = Gender::UNKNOWN_GENDER;
@@ -112,7 +113,7 @@ bool Cat::checkName(const char newName[]) {
 }
 
 bool Cat::checkGender(Gender newGender){
-    if( newGender == UNKNOWN_GENDER ){
+    if( newGender == Gender::UNKNOWN_GENDER ){
         cout << "ERROR: Gender must be known.\n";
         return false;
     }
@@ -175,4 +176,4 @@ bool validateDatabase(){
         return false;
     }
     return true; // Database is validated
-}
+}*/

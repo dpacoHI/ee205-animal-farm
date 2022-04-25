@@ -11,11 +11,12 @@
 #include <stdio.h>
 #include <cassert>
 
-#include "catDatabase.h"
+#include "Cat.h"
 #include "deleteCats.h"
 #include "config.h"
 using namespace std;
 
+/*
 bool deleteCat(Cat* deleteChosenCat){
     assert(deleteChosenCat != nullptr);
 //    assert(validateDatabase());
@@ -45,4 +46,5 @@ bool deleteAllCats(void){
     }
     return true;
 }
+*/
 

@@ -14,7 +14,7 @@
 #include <stdbool.h>
 #include <cassert>
 #include "addCats.h"
-#include "catDatabase.h"
+#include "Cat.h"
 #include "config.h"
 
 /*const int addCat(const char *name, const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collar1_color, const enum Color collar2_color, const unsigned long long int license){
@@ -74,7 +74,7 @@
 } PRE-OOP Function
  */
 
-bool addCat(Cat* newCat){
+/*bool addCat(Cat* newCat){
     assert(newCat != nullptr);
     newCat->validate(); // Check that the Cat is valid
     newCat->next = catDatabaseHPointer;
@@ -82,5 +82,5 @@ bool addCat(Cat* newCat){
     CURRENT_CATS++;
     assert(validateDatabase());
     return true;
-}
+}*/
 

@@ -12,7 +12,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "catDatabase.h"
+#include "Cat.h"
 #include "updateCats.h"
 #include "config.h"
 

@@ -16,7 +16,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "catDatabase.h"
+#include "Cat.h"
 #include "addCats.h"
 #include "reportCats.h"
 #include "updateCats.h"
@@ -26,7 +26,7 @@ using namespace std;
 // #include "config.h"
 
 int main ( ) {
-    cout << "Starting Animal Farm 2\n";
+    cout << "Starting " << PROGRAM_NAME << "\n";
   /*  addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101) ;
     addCat( "Milo", MALE, MANX, true, 7.0, BLACK, RED, 102) ;
     addCat( "Bella", FEMALE, MAINE_COON, true, 18.2, BLACK, BLUE, 103) ;
@@ -63,13 +63,13 @@ int main ( ) {
    // Testing Illegal Weight
    assert( addCat( "David", MALE, SPHYNX, true, -4, BLUE, RED, 211 ) == false );
 #endif*/
-#ifdef DEBUG
+/*#ifdef DEBUG
     {
       // Verify that a cat's default values are set
       Cat testCat = Cat();
       assert(testCat.getName() != nullptr );
       assert(strcmp(testCat.getName(), "") == 0);
-      assert(testCat.getGender() == UNKNOWN_GENDER);
+      assert(testCat.getGender() == Gender::UNKNOWN_GENDER);
       assert(testCat.getBreed() == UNKNOWN_BREED);
       assert(testCat.isFixed() == false);
       assert(testCat.getWeight() == UNKNOWN_WEIGHT);
@@ -160,6 +160,6 @@ int main ( ) {
 
     deleteAllCats() ;
 
-    printAllCats() ;
-    cout << "Done with Animal Farm 2\n";
+    printAllCats() ;*/
+    cout << "Ending " << PROGRAM_NAME << "\n";
 }

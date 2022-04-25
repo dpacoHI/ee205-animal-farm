@@ -13,7 +13,7 @@
 #include <string.h>
 #include <cassert>
 
-#include "catDatabase.h"
+#include "Cat.h"
 #include "reportCats.h"
 #include "config.h"
 
@@ -51,7 +51,7 @@ int findCat(const char *name){
     return 0; // Returns error if not found
 }*/
 
-Cat* findCatByName(const char* name){
+/*Cat* findCatByName(const char* name){
     assert(Cat().checkName(name)); // Check Name
     for(Cat* Current_Cat = catDatabaseHPointer; Current_Cat != nullptr; Current_Cat = Current_Cat->next){
         if(strcmp(name,Current_Cat->getName())==0){ // Checks to see if string matches...
@@ -69,4 +69,4 @@ bool printAllCats(){
         i++;
     }
     return true;
-}
+}*/

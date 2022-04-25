@@ -16,6 +16,8 @@
 #pragma once
 
 #include "config.h"
+#include "Mammal.h"
+#include <cstring>
 
 using namespace std;
 
@@ -24,75 +26,10 @@ using namespace std;
 #define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
 // Declare Enums for Gender and Breed
-enum class Gender {UNKNOWN_GENDER = 0, MALE, FEMALE};
 enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-enum class Color {UNKNOWN_COLOR = 0, BLACK, BROWN, WHITE, RED, BLUE, GREEN, GINGER, CREAM, CINNAMON, CALICO};
 
-// Converting Enum classes to printing as strings
 
-inline std::ostream& operator<<( std::ostream& lhs_stream, const Gender& rhs_Gender ) {
-    switch( rhs_Gender ) {
-        case Gender::UNKNOWN_GENDER:
-            lhs_stream << "Unknown gender";
-            break;
-        case Gender::MALE:
-            lhs_stream << "Male";
-            break;
-        case Gender::FEMALE:
-            lhs_stream << "Female";
-            break;
-        default:
-            /// @throw out_of_range If the enum is not mapped to a string.
-            throw std::out_of_range( PROGRAM_NAME ": Gender not mapped to a string" );
-    }
-
-    return lhs_stream;
-}
-
-inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Color ) {
-    switch( rhs_Color ) {
-        case Color::UNKNOWN_COLOR:
-            lhs_stream << "Unknown color";
-            break;
-        case Color::BLACK:
-            lhs_stream << "Black";
-            break;
-        case Color::BROWN:
-            lhs_stream << "Brown";
-            break;
-        case Color::WHITE:
-            lhs_stream << "White";
-            break;
-        case Color::RED:
-            lhs_stream << "Red";
-            break;
-        case Color::BLUE:
-            lhs_stream << "Blue";
-            break;
-        case Color::GREEN:
-            lhs_stream << "Green";
-            break;
-        case Color::GINGER:
-            lhs_stream << "Ginger";
-            break;
-        case Color::CREAM:
-            lhs_stream << "Cream";
-            break;
-        case Color::CINNAMON:
-            lhs_stream << "Cinnamon";
-            break;
-        case Color::CALICO:
-            lhs_stream << "Calico";
-            break;
-        default:
-            /// @throw out_of_range If the enum is not mapped to a string.
-            throw std::out_of_range( PROGRAM_NAME ": Color not mapped to a string" );
-    }
-
-    return lhs_stream;
-}
 // Typedefs
-typedef float Weight;
 typedef int NumCats;
 
 // Global Variables

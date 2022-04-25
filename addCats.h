@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "catDatabase.h"
+#include "Cat.h"
 
 #pragma once
 
