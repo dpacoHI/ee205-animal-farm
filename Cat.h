@@ -21,124 +21,59 @@
 
 using namespace std;
 
-#define MAX_NAME_LENGTH 50
-#define MAX_CATS 1024
-#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
-
-// Declare Enums for Gender and Breed
-enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-
-
-// Typedefs
-typedef int NumCats;
-
-// Global Variables
-//extern char nameData[MAX_CATS][MAX_NAME_LENGTH];
-//extern enum Gender genderData[MAX_CATS];
-//extern enum Breed breedData[MAX_CATS];
-//extern bool boolData[MAX_CATS];
-//extern float weightData[MAX_CATS];
-extern NumCats CURRENT_CATS;
-
-// Conversion from 5 Arrays to 1 Array of a Structure
-
-/*extern struct catData
-{
-    char nameData[MAX_NAME_LENGTH];
-    enum Gender genderData;
-    enum Breed breedData;
-    bool boolData;
-    Weight weightData;
-    enum Color collar1;
-    enum Color collar2;
-    unsigned long long license;
-} array_catData[MAX_CATS];*/
-
-// Implementation of Cat Class
 class Cat : public Mammal {
+public:   //////////////////////// Constants ///////////////////////////////////
+    static const std::string      SPECIES_NAME;  ///< The scientific name for this species
+    static const Weight::t_weight MAX_WEIGHT;    ///< The maximum weight for this species
 
-protected:
-    // Members
-    char name[MAX_NAME_LENGTH];
-    enum Gender gender;
-    enum Breed  breed;
-    bool        isCatFixed;
-    Weight      weight;
-public:
-    // Only Public Member
-    Cat* next;
+protected:  ///////////////////////// Member Variables /////////////////////////
+    std::string name ;        ///< The name of the cat
+    bool        isCatFixed ;  ///< `true` if the cat is fixed/neutered
 
-    // Getters and Setters (with Validations)
-    char* getName() {
-        return name;
-    }
-    void setName (const char newName[]){
-        checkName(newName);
-        memset(name, 0, MAX_NAME_LENGTH);
-        strcpy(name, newName);
-    }
-
-    Gender getGender(){
-        return gender;
-    }
-    void setGender (Gender newGender){
-        if( gender != Gender::UNKNOWN_GENDER ){
-            cout << "Gender is set and cannot be changed.\n";
-            return;
+public:  //////////////////////////// Constructors /////////////////////////////
+    /// Create a Cat with the minimum fields necessary to have a valid Cat
+    explicit Cat( const std::string& newName ) : Mammal( MAX_WEIGHT, SPECIES_NAME ) {
+        if( !validateName( newName) ) {
+            /// @throws out_of_range If the Cat doesn't have a name
+            throw std::out_of_range( "Cats must have a name" );
         }
-        checkGender(newGender);
-        gender = newGender;
+        name = newName;
+        isCatFixed = false;
+
+        Cat::validate();
     }
 
-    Breed getBreed(){
-        return breed;
-    }
-    void setBreed (Breed newBreed){
-        if( breed != UNKNOWN_BREED ){
-            cout << "Breed is set and cannot be changed.\n";
-            return;
+    /// Create a Cat, populating *all* of the member variables
+    Cat( const std::string&     newName
+            ,const Color            newColor
+            ,const bool             newIsFixed
+            ,const Gender           newGender
+            ,const Weight::t_weight newWeight
+    ) : Mammal( newColor, newGender, newWeight, MAX_WEIGHT, SPECIES_NAME ) {
+        if( !validateName( newName) ) {
+            /// @throws out_of_range If the Cat doesn't have a name
+            throw std::out_of_range( "Cats must have a name" );
         }
-        checkBreed(newBreed);
-        breed = newBreed;
+        name = newName;
+        isCatFixed = newIsFixed;
+
+        Cat::validate();
     }
 
-    bool getFixed(){
-        return isCatFixed;
-    }
-    void fixCat(){
-        isCatFixed = true;
-    }
+public:  ////////////////////////// Getters & Setters //////////////////////////
+    std::string getName() const noexcept ;  ///< Get the Cat's name
+    void setName( const std::string& newName );   ///< Set the Cat's name.  The name
+    ///< must not be empty.
 
-    Weight getWeight(){
-        return weight;
-    }
-    void setWeight(Weight newWeight){
-        checkWeight(newWeight);
-        weight = newWeight;
-    }
+    bool isFixed() const noexcept ;      ///< Return `true` if the cat is fixed/neutered
+    void fixCat() noexcept ;             ///< Spay or neuter the cat
 
+public:  /////////////////////////// Public Methods ////////////////////////////
+    std::string speak() const noexcept override;  ///< Say `Meow`.
+    void dump() const noexcept override;          ///< Print the contents of this object (and its parents)
+    bool validate() const noexcept override;      ///< Check to see if the Cat object is valid
 
-    // Constructors and Destructors
-    Cat(); // Constructor with no Parameters
-    Cat( const char* newName, const Gender newGender, const Breed newBreed, const Weight newWeight); // Constructor with fields for valid cat.
-    ~Cat(); // Destructor
-
-
-    // Methods
-    void setZero(); // Initializes or Deletes Data
-    bool print(); // Prints Cat
-    bool validate(); // Checks if Cat is Valid
-    static bool checkName(const char* newName ) ; // Checks Cat's Name
-    static bool checkGender(const Gender newGender); // Checks Cat's Gender
-    static bool checkBreed(const Breed newBreed); // Checks Cat's Breed
-    static bool checkWeight(const Weight newWeight); // Checks Cat's Weight
+public:  /////////////////////// Static Public Methods /////////////////////////
+    // Static methods are `const` by default
+    static bool validateName( const std::string& newName ) ;  ///< Check if `newName` is valid
 };
-
-// Linked List Implementation
-extern Cat* catDatabaseHPointer;
-extern bool validateDatabase();
-
-extern const char* gender_str(const enum Gender gender);
-extern const char* breed_str(const enum Breed breed);
-extern const char* color_str(const enum Color colorData);
-

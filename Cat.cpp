@@ -24,9 +24,9 @@ using namespace std;
 //bool boolData[MAX_CATS];
 //Weight weightData[MAX_CATS];
 
-Cat* catDatabaseHPointer = nullptr;
+
 // Current Number of Cats initialized to 0
-NumCats CURRENT_CATS = 0;
+
 
 // Declare an array of the structure
 // struct catData array_catData[MAX_CATS];

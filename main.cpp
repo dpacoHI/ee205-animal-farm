@@ -17,10 +17,6 @@
 #include <assert.h>
 
 #include "Cat.h"
-#include "addCats.h"
-#include "reportCats.h"
-#include "updateCats.h"
-#include "deleteCats.h"
 #include <iostream>
 using namespace std;
 // #include "config.h"
