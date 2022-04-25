@@ -76,7 +76,7 @@
 
 bool addCat(Cat* newCat){
     assert(newCat != nullptr);
-    newCat->validate(); // Check that the Cat fo
+    newCat->validate(); // Check that the Cat is valid
     newCat->next = catDatabaseHPointer;
     catDatabaseHPointer = newCat;
     CURRENT_CATS++;

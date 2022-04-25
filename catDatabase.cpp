@@ -32,7 +32,7 @@ NumCats CURRENT_CATS = 0;
 // struct catData array_catData[MAX_CATS];
 
 // Printing out Enums as Strings...
-const char* gender_str(enum Gender gender)
+/*const char* gender_str(enum Gender gender)
 {
     switch (gender)
     {
@@ -69,11 +69,11 @@ const char* color_str(enum Color colorData)
         case PINK:  return "Pink";
     }
     return 0;
-}
+}*/
 
 void Cat::setZero(){
     memset(name,0,MAX_NAME_LENGTH);
-    gender = UNKNOWN_GENDER;
+    gender = Gender::UNKNOWN_GENDER;
     breed = UNKNOWN_BREED;
     isCatFixed = false;
     weight = -1;
