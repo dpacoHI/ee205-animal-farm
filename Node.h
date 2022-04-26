@@ -9,10 +9,10 @@
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-
 #include "config.h"
 
 class Node {
+
     friend class List;
     friend class SinglyLinkedList;
 

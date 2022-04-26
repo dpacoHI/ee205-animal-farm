@@ -8,6 +8,7 @@
 /// @author David Paco <dpaco@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#include <cassert>
 #include "SinglyLinkedList.h"
 using namespace std;
 
@@ -82,6 +83,21 @@ void SinglyLinkedList::dump() const noexcept {
 }
 
 bool SinglyLinkedList::validate() const noexcept {
-    if()
+    if(head == nullptr){
+        assert(count == 0);
+        assert(empty());
+    } else {
+        assert(count != 0);
+        assert(!empty());
+    }
+
+    unsigned int n_count = 0;
+    Node* currentNode = head;
+
+    while( currentNode != nullptr){
+        n_count++;
+        currentNode = currentNode -> next;
+    }
+    return true;
 }
 
