@@ -62,5 +62,6 @@ void List::deleteAllNodes() noexcept {
     while(head != nullptr){
         pop_front();
     }
+    cout << "Deleted All Nodes" << endl;
 }
 
