@@ -18,13 +18,8 @@ public:
 
     // Public Methods
     void  push_front(Node* newNode);  // Inserts newNode to the beginning of the List
-
     Node* pop_front() noexcept override; // Removes and returns the first Node in the List
-
     void insert_after( Node* currentNode, Node* newNode ); // Inserts newNode after currentNode
-
     void dump() const noexcept override; // Outputs the contents of this container
-
     bool validate() const noexcept override; // Checks to see if the container is valid
-
 };
