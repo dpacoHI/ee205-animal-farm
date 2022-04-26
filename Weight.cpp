@@ -9,17 +9,6 @@
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////
-///         University of Hawaii, College of Engineering
-/// @brief  ee205_lab11a_fatCat - EE 205 - Spr 2022
-///
-/// @file Weight.cpp
-/// @version 1.0
-///
-/// @author Mark Nelson <marknels@hawaii.edu>
-/// @date   30_Mar_2022
-///////////////////////////////////////////////////////////////////////////////
-
 #include <cassert>    // For assert()
 #include <iostream>   // For cout
 #include <stdexcept>  // For out_of_range
@@ -283,27 +272,6 @@ float Weight::convertWeight( const float fromWeight
                                       << std::setw(20) << (member)   \
                                       << std::setw(52)  /* (data) */
 
-/// #### Sample Output
-/// @code
-/// Weight noWeight;
-///     ==============================================
-///     Weight  this                0x7ffd00c73360
-///     Weight  isKnown             false
-///     Weight  weight              0
-///     Weight  unitOfWeight        Pound
-///     Weight  hasMax              false
-///     Weight  maxWeight           0
-///
-/// Weight myWeight( 3.14, Weight::KILO, 20 );
-///     ==============================================
-///     Weight  this                0x7ffcc65aeb00
-///     Weight  isKnown             true
-///     Weight  weight              3.14
-///     Weight  unitOfWeight        Kilo
-///     Weight  hasMax              true
-///     Weight  maxWeight           20
-/// @endcode
-///
 void Weight::dump() const noexcept {
     // Print ===================================================================
     cout << setw(80) << setfill( '=' ) << "" << endl ;
@@ -320,27 +288,6 @@ void Weight::dump() const noexcept {
     // FORMAT_LINE( "Weight", "<<" ) << this << endl ;
 }
 
-
-/// #### Output rules
-///
-///   - If the weight is unknown, print `Unknown`
-///   - If the weight has a maximum weight, print the weight followed by ` out of ` and the maximum weight
-///   - Print the unit.  If the last number that's printed is > 1, then make the unit plural by adding an `s`
-///
-/// #### Sample Output
-///
-/// Test vectors for Weight << override:
-///     | Usage                                   | The Output              |
-///     |-----------------------------------------|-------------------------|
-///     | `Weight weight`                         | `Unknown`               |
-///     | `Weight weight( 0.5 )`                  | `0.5 Pound`             |
-///     | `Weight weight( 1 )`                    | `1 Pound`               |
-///     | `Weight weight( 1.5 )`                  | `1.5 Pounds`            |
-///     | `Weight weight( 1.5, Weight::KILO )`    | `1.5 Kilos`             |
-///     | `Weight weight( 0.5, Weight::KILO, 1 )` | `0.5 out of 1 Kilo`     |
-///     | `Weight weight( 0.5, Weight::KILO, 2 )` | `0.5 out of 2 Kilos`    |
-///     | `Weight weight( Weight::KILO, 1 )`      | `Unknown out of 1 Kilo` |
-///
 std::ostream& operator<<( std::ostream& lhs_stream, const Weight& rhs_Weight ) {
     if( !rhs_Weight.isWeightKnown() && !rhs_Weight.hasMaxWeight() ) {
         lhs_stream << "Unknown" ;
@@ -380,8 +327,6 @@ std::ostream& operator<<( ostream& lhs_stream, const Weight::UnitOfWeight rhs_Un
 
 
 bool Weight::operator==( const Weight& rhs_Weight ) const {
-    /// Remember to convert the two weight's units into a common unit!
-    /// Treat unknown weights as 0 (so we can sort them without dealing with exceptions)
     float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
     float rhs_weight = (rhs_Weight.bIsKnown) ? rhs_Weight.getWeight(Weight::POUND) : 0;
 
@@ -390,8 +335,6 @@ bool Weight::operator==( const Weight& rhs_Weight ) const {
 
 
 bool Weight::operator<( const Weight& rhs_Weight ) const {
-    /// Remember to convert the two weight's units into a common unit!
-    /// Treat unknown weights as 0 (so we can sort them without dealing with exceptions)
     float lhs_weight = (bIsKnown) ? getWeight(Weight::POUND) : 0;
     float rhs_weight = (rhs_Weight.bIsKnown) ? rhs_Weight.getWeight(Weight::POUND) : 0;
 
@@ -399,10 +342,8 @@ bool Weight::operator<( const Weight& rhs_Weight ) const {
 }
 
 
-/// It's assumed that rhs_addToWeight is in the same units as Weight
 Weight& Weight::operator+=( const float rhs_addToWeight ) {
     if( !bIsKnown ) {
-        /// @throws out_of_range When a mathematical operation is attempted when the weight is unknown
         throw out_of_range( "Weight is unknown" ) ;
     }
 
