@@ -11,19 +11,20 @@
 #include "Node.h"
 #include "List.h"
 
-/// A generic SinglyLinkedList collection class.
-///
 class SinglyLinkedList : public List {
-public:  ///////////////////////// Public Constructors /////////////////////////
-    SinglyLinkedList();        ///< Make a new SinglyLinkedList
+public:
+    // Public Constructor
+    SinglyLinkedList(); // Makes a new SinglyLinkedList
 
-public:  /////////////////////////// Public Methods ////////////////////////////
-    void  push_front( Node* newNode ) ;  ///< Insert `newNode` to the beginning of the List
-    Node* pop_front() noexcept override; ///< Remove and return the first Node in the List
+    // Public Methods
+    void  push_front(Node* newNode);  // Inserts newNode to the beginning of the List
 
-    void insert_after( Node* currentNode, Node* newNode ) ;  ///< Insert `newNode` after `currentNode`
+    Node* pop_front() noexcept override; // Removes and returns the first Node in the List
 
-    void dump() const noexcept override ;     ///< Output the contents of this container
-    bool validate() const noexcept override ; ///< Check to see if the container is valid
+    void insert_after( Node* currentNode, Node* newNode ); // Inserts newNode after currentNode
 
-}; // class SingleLinkedList
+    void dump() const noexcept override; // Outputs the contents of this container
+
+    bool validate() const noexcept override; // Checks to see if the container is valid
+
+};
