@@ -8,6 +8,8 @@
 /// @author David Paco <dpaco@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#pragma once
+
 #include <iostream>
 #include "config.h"
 
@@ -31,6 +33,7 @@ protected:
 public:
     // Public Methods
     virtual void dump() const {
+        PRINT_HEADING_FOR_DUMP;
         FORMAT_LINE_FOR_DUMP( "Node", "this" ) << this << std::endl ;
         FORMAT_LINE_FOR_DUMP( "Node", "next" ) << next << std::endl ;
     } // Print contents of node

@@ -8,6 +8,8 @@
 /// @author David Paco <dpaco@hawaii.edu>
 /// @date   24_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
+#pragma once
+
 #include "Node.h"
 #include "List.h"
 

@@ -10,6 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <cassert>
 #include "SinglyLinkedList.h"
+#include "config.h"
+
 using namespace std;
 
 SinglyLinkedList::SinglyLinkedList() {
@@ -39,12 +41,12 @@ void SinglyLinkedList::push_front(Node *newNode) {
     validate();
 }
 
-Node *SinglyLinkedList::pop_front() noexcept {
+Node* SinglyLinkedList::pop_front() noexcept {
     if(head == nullptr){
         return nullptr;
     }
     Node* value = head;
-    value -> next = nullptr;
+    head = head->next;
     count--;
     validate();
     return value;
@@ -83,13 +85,9 @@ void SinglyLinkedList::dump() const noexcept {
 }
 
 bool SinglyLinkedList::validate() const noexcept {
-    if(head == nullptr){
-        assert(count == 0);
-        assert(empty());
-    } else {
-        assert(count != 0);
-        assert(!empty());
-    }
+   if(!List::validate()){
+       return false;
+   }
 
     unsigned int n_count = 0;
     Node* currentNode = head;

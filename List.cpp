@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <cassert>
 #include "List.h"
+#define DEBUG
 
 using namespace std;
 
@@ -59,9 +60,23 @@ Node *List::get_first() const noexcept {
 }
 
 void List::deleteAllNodes() noexcept {
+    assert(validate());
+
     while(head != nullptr){
         pop_front();
     }
-    cout << "Deleted All Nodes" << endl;
+#ifdef DEBUG
+    cout << PROGRAM_NAME << ": All Nodes have been deleted" << endl ;
+#endif
+    assert( validate() );
+}
+
+bool List::validate() const noexcept {
+    if (head == nullptr) {
+        assert(size() == 0);
+    } else {
+        assert(size() != 0);
+    }
+    return true;
 }
 
